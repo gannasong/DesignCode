@@ -11,8 +11,27 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       BackCardView()
+        .background(Color("card4"))
+        .cornerRadius(20)
+        .shadow(radius: 20)
+        .offset(x: 0, y: -40) // offset 調整位置
+        .scaleEffect(0.9)
+        .rotationEffect(.degrees(10))
+        .rotation3DEffect(.degrees(10), axis: (x: 10.0, y: 0.0, z: 0.0))
+        .blendMode(.hardLight)
+
+      BackCardView()
+        .background(Color("card3"))
+        .cornerRadius(20)
+        .shadow(radius: 20)
+        .offset(x: 0, y: -20)
+        .scaleEffect(0.95) // 調整 backcardview 大小比例(這邊採用逐漸縮小)
+        .rotationEffect(.degrees(5)) // 旋轉角度
+        .rotation3DEffect(.degrees(5), axis: (x: 10.0, y: 0.0, z: 0.0)) // 調整 3D 角度
+        .blendMode(.hardLight) // 混合模式
 
       CardView()
+        .blendMode(.hardLight)
     }
   }
 }
@@ -56,10 +75,6 @@ struct BackCardView: View {
   var body: some View {
     VStack {
       Spacer()
-    }.frame(width: 300, height: 220)
-    .background(Color.blue)
-    .cornerRadius(20)
-    .shadow(radius: 20)
-    .offset(x: 0, y: -20)
+    }.frame(width: 340, height: 220)
   }
 }

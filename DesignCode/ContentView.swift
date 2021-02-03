@@ -16,7 +16,7 @@ struct ContentView: View {
         .blur(radius: 20)
 
       BackCardView()
-        .background(Color("card4"))
+        .background(show ? Color("card3") : Color("card4"))
         .cornerRadius(20)
         .shadow(radius: 20)
         .offset(x: 0, y: show ? -400 : -40) // offset 調整位置
@@ -27,7 +27,7 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 0.5))
 
       BackCardView()
-        .background(Color("card3"))
+        .background(show ? Color("card4") : Color("card3"))
         .cornerRadius(20)
         .shadow(radius: 20)
         .offset(x: 0, y: show ? -200 : -20)

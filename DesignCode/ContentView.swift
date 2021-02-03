@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
   @State var show = false
   @State var viewState: CGSize = .zero
-  
+
   var body: some View {
     ZStack {
       TitleView()
@@ -40,10 +40,19 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 0.3)) // 設置動畫
 
       CardView()
+        .offset(x: viewState.width, y: viewState.height)
         .blendMode(.hardLight)
         .onTapGesture {
           show.toggle()
         }
+        .gesture(
+          DragGesture().onChanged { value in // 拖曳手勢
+            viewState = value.translation
+          }
+          .onEnded { value in // restore position
+            viewState = .zero
+          }
+        )
 
       BottomCardView()
         .blur(radius: show ? 20 : 0)

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
   @State var show = false
-
+  @State var viewState: CGSize = .zero
+  
   var body: some View {
     ZStack {
       TitleView()

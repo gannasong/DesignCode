@@ -45,7 +45,8 @@ struct ContentView: View {
         }
 
       BottomCardView()
-        .blur(radius: 20)
+        .blur(radius: show ? 20 : 0)
+        .animation(.default)
     }
   }
 }
@@ -128,6 +129,6 @@ struct BottomCardView: View {
     .background(Color.white)
     .cornerRadius(30)
     .shadow(radius: 20)
-    .offset(x: 0, y: 600)
+    .offset(x: 0, y: 550)
   }
 }

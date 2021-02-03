@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var show = false
+
   var body: some View {
     ZStack {
       TitleView()
@@ -17,24 +19,29 @@ struct ContentView: View {
         .background(Color("card4"))
         .cornerRadius(20)
         .shadow(radius: 20)
-        .offset(x: 0, y: -40) // offset 調整位置
+        .offset(x: 0, y: show ? -400 : -40) // offset 調整位置
         .scaleEffect(0.9)
-        .rotationEffect(.degrees(10))
+        .rotationEffect(.degrees(show ? 0 : 10))
         .rotation3DEffect(.degrees(10), axis: (x: 10.0, y: 0.0, z: 0.0))
         .blendMode(.hardLight)
+        .animation(.easeInOut(duration: 0.5))
 
       BackCardView()
         .background(Color("card3"))
         .cornerRadius(20)
         .shadow(radius: 20)
-        .offset(x: 0, y: -20)
+        .offset(x: 0, y: show ? -200 : -20)
         .scaleEffect(0.95) // 調整 backcardview 大小比例(這邊採用逐漸縮小)
-        .rotationEffect(.degrees(5)) // 旋轉角度
+        .rotationEffect(.degrees(show ? 0 : 5)) // 旋轉角度
         .rotation3DEffect(.degrees(5), axis: (x: 10.0, y: 0.0, z: 0.0)) // 調整 3D 角度
         .blendMode(.hardLight) // 混合模式
+        .animation(.easeInOut(duration: 0.3)) // 設置動畫
 
       CardView()
         .blendMode(.hardLight)
+        .onTapGesture {
+          show.toggle()
+        }
 
       BottomCardView()
         .blur(radius: 20)

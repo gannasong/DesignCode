@@ -10,12 +10,19 @@ import SwiftUI
 struct ContentView: View {
   @State var show = false
   @State var viewState: CGSize = .zero
+  @State var showCard = false
 
   var body: some View {
     ZStack {
       TitleView()
         .blur(radius: show ? 20 : 0)
-        .animation(.default)
+        .opacity(showCard ? 0.4 : 1) // 設定透明度
+        .offset(y: showCard ? -200 : 0) // 點擊 CardView 時 TitleView 位移
+        .animation(
+          Animation
+            .default
+            .delay(0.1) // 點擊之後，TitleView 延遲動畫
+        )
 
       BackCardView()
         .background(show ? Color("card3") : Color("card4"))
@@ -46,7 +53,7 @@ struct ContentView: View {
         .blendMode(.hardLight)
         .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0)) // release drag animation, response 回來速度，數字越小越快，dampingFraction 反彈效果，數字越小反彈越大
         .onTapGesture {
-          show.toggle()
+          showCard.toggle()
         }
         .gesture(
           DragGesture().onChanged { value in // 拖曳手勢
@@ -60,8 +67,9 @@ struct ContentView: View {
         )
 
       BottomCardView()
+        .offset(x: 0, y: showCard ? 400 : 1000)
         .blur(radius: show ? 20 : 0)
-        .animation(.default)
+        .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8)) // bottom card view 推出來的速度
     }
   }
 }
@@ -144,6 +152,5 @@ struct BottomCardView: View {
     .background(Color.white)
     .cornerRadius(30)
     .shadow(radius: 20)
-    .offset(x: 0, y: 550)
   }
 }

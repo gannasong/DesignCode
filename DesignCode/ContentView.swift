@@ -22,6 +22,7 @@ struct ContentView: View {
         .cornerRadius(20)
         .shadow(radius: 20)
         .offset(x: 0, y: show ? -400 : -40) // offset 調整位置
+        .offset(x: viewState.width, y: viewState.height)
         .scaleEffect(0.9)
         .rotationEffect(.degrees(show ? 0 : 10))
         .rotation3DEffect(.degrees(10), axis: (x: 10.0, y: 0.0, z: 0.0))
@@ -33,6 +34,7 @@ struct ContentView: View {
         .cornerRadius(20)
         .shadow(radius: 20)
         .offset(x: 0, y: show ? -200 : -20)
+        .offset(x: viewState.width, y: viewState.height)
         .scaleEffect(0.95) // 調整 backcardview 大小比例(這邊採用逐漸縮小)
         .rotationEffect(.degrees(show ? 0 : 5)) // 旋轉角度
         .rotation3DEffect(.degrees(5), axis: (x: 10.0, y: 0.0, z: 0.0)) // 調整 3D 角度
@@ -49,9 +51,11 @@ struct ContentView: View {
         .gesture(
           DragGesture().onChanged { value in // 拖曳手勢
             viewState = value.translation
+            show = true
           }
           .onEnded { value in // restore position
             viewState = .zero
+            show = false
           }
         )
 

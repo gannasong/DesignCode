@@ -42,6 +42,7 @@ struct ContentView: View {
       CardView()
         .offset(x: viewState.width, y: viewState.height)
         .blendMode(.hardLight)
+        .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0)) // release drag animation, response 回來速度，數字越小越快，dampingFraction 反彈效果，數字越小反彈越大
         .onTapGesture {
           show.toggle()
         }

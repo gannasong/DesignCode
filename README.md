@@ -13,9 +13,9 @@
 | 08 | SF Symbols and Props | [08.md](Chapters/08.md) | Done |
 | 09 | Color Literal, Gradient and Overlay | [09.md](Chapters/09.md) | Done |
 | 10 | Animation Between Screens | [10.md](Chapters/10.md) | Done |
-| 11 | Drag Progress and Tap Background | [11.md](Chapters/11.md) |  |
-| 12 | Binding and Screen Size | [12.md](Chapters/12.md) |  |
-| 13 | ScrollView and Repeat | [13.md](Chapters/13.md) |  |
+| 11 | Drag Progress and Tap Background | [11.md](Chapters/11.md) | Done |
+| 12 | Binding and Screen Size | [12.md](Chapters/12.md) | Done |
+| 13 | ScrollView and Repeat | [13.md](Chapters/13.md) | Done |
 | 14 | Data and Image Literal| [14.md](Chapters/14.md) |  |
 | 15 | 3D Scroll Animation | [15.md](Chapters/15.md) |  |
 | 16 | Modal Presentation | [16.md](Chapters/16.md) |  |

@@ -81,6 +81,9 @@ struct ContentView: View {
           }
         )
 
+      Text("\(bottomState.height)")
+        .offset(y: -340)
+
       BottomCardView()
         .offset(x: 0, y: showCard ? 400 : 1000)
         .offset(y: bottomState.height)
@@ -91,6 +94,9 @@ struct ContentView: View {
             bottomState = value.translation
           }
           .onEnded { value in
+            if bottomState.height > 80 {
+              showCard = false
+            }
             bottomState = .zero
           }
         )

@@ -11,6 +11,8 @@ struct MenuView: View {
   var body: some View {
     VStack {
       MenuRow(title: "Account", icon: "gear")
+      MenuRow(title: "Billing", icon: "creditcard")
+      MenuRow(title: "Sign out", icon: "person.crop.circle")
     }
   }
 }
@@ -30,9 +32,11 @@ struct MenuRow: View {
       Image(systemName: icon)
         .font(.system(size: 20, weight: .light))
         .imageScale(.large) // 圖案變大
+        .frame(width: 32, height: 32)
 
       Text(title)
         .font(.system(size: 20, weight: .bold, design: .default)) // design 就是下載的字體
+        .frame(width: 120, alignment: .leading)
     }
   }
 }

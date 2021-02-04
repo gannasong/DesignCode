@@ -11,6 +11,7 @@ struct ContentView: View {
   @State var show = false
   @State var viewState: CGSize = .zero
   @State var showCard = false
+  private var firstBackCardWidth: CGFloat =  300 // 因為這版編譯器型別推倒有問題，所以改成這樣
 
   var body: some View {
     ZStack {
@@ -25,31 +26,44 @@ struct ContentView: View {
         )
 
       BackCardView()
+        .frame(width: showCard ? firstBackCardWidth : 340, height: 220)
         .background(show ? Color("card3") : Color("card4"))
         .cornerRadius(20)
         .shadow(radius: 20)
         .offset(x: 0, y: show ? -400 : -40) // offset 調整位置
         .offset(x: viewState.width, y: viewState.height)
-        .scaleEffect(0.9)
+        .offset(y: showCard ? -180 : 0)
+        .scaleEffect(showCard ? 1 : 0.9) // 恢復正常大小
         .rotationEffect(.degrees(show ? 0 : 10))
-        .rotation3DEffect(.degrees(10), axis: (x: 10.0, y: 0.0, z: 0.0))
+        .rotationEffect(.degrees(showCard ? -10 : 0))
+        .rotation3DEffect(.degrees(showCard ? 0 : 10), axis: (x: 10.0, y: 0.0, z: 0.0))
         .blendMode(.hardLight)
         .animation(.easeInOut(duration: 0.5))
 
       BackCardView()
+        .frame(width: 340, height: 220)
         .background(show ? Color("card4") : Color("card3"))
         .cornerRadius(20)
         .shadow(radius: 20)
         .offset(x: 0, y: show ? -200 : -20)
         .offset(x: viewState.width, y: viewState.height)
-        .scaleEffect(0.95) // 調整 backcardview 大小比例(這邊採用逐漸縮小)
+        .offset(y: showCard ? -140 : 0)
+        .scaleEffect(showCard ? 1 : 0.95) // 調整 backcardview 大小比例(這邊採用逐漸縮小)
         .rotationEffect(.degrees(show ? 0 : 5)) // 旋轉角度
-        .rotation3DEffect(.degrees(5), axis: (x: 10.0, y: 0.0, z: 0.0)) // 調整 3D 角度
+        .rotationEffect(.degrees(showCard ? -5 : 0)) // 點擊之後角度轉正
+        .rotation3DEffect(.degrees(showCard ? 0 : 5), axis: (x: 10.0, y: 0.0, z: 0.0)) // 調整 3D 角度
         .blendMode(.hardLight) // 混合模式
         .animation(.easeInOut(duration: 0.3)) // 設置動畫
 
       CardView()
+//        .frame(width: showCard ? 375 : 340, height: 220)
+        .frame(width: 375, height: 220) // 需要修改高度，但是這邊編譯器會壞掉
+        .background(Color.black)
+//        .cornerRadius(20)
+        .clipShape(RoundedRectangle(cornerRadius: showCard ? 30 : 20, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/))
+        .shadow(radius: 20)
         .offset(x: viewState.width, y: viewState.height)
+        .offset(y: showCard ? -100 : 0)
         .blendMode(.hardLight)
         .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0)) // release drag animation, response 回來速度，數字越小越快，dampingFraction 反彈效果，數字越小反彈越大
         .onTapGesture {
@@ -102,10 +116,6 @@ struct CardView: View {
         .aspectRatio(contentMode: .fill)
         .frame(width: 300, height: 110, alignment: .top)
     }
-    .frame(width: 340.0, height: 220.0)
-    .background(Color.black)
-    .cornerRadius(20)
-    .shadow(radius: 20)
   }
 }
 
@@ -113,7 +123,7 @@ struct BackCardView: View {
   var body: some View {
     VStack {
       Spacer()
-    }.frame(width: 340, height: 220)
+    }
   }
 }
 

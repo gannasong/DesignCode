@@ -23,6 +23,15 @@ struct MenuView: View {
       .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
       .shadow(radius: 30) // 增加隱影，必須在切圓角後再添加，否則隱影會被切掉
       .padding(.horizontal, 30) // 橫向加入 padding
+      .overlay(
+        Image("Avatar")
+          .resizable()
+          .aspectRatio(contentMode: .fill)
+          .frame(width: 60, height: 60)
+          .clipShape(Circle())
+          .offset(y: -150)
+          .shadow(radius: 10)
+      )
     }
     .padding(.bottom, 30) // 在外層 vstack 底部添加 padding
   }

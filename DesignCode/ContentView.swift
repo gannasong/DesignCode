@@ -11,7 +11,9 @@ struct ContentView: View {
   @State var show = false
   @State var viewState: CGSize = .zero
   @State var showCard = false
-  private var firstBackCardWidth: CGFloat =  300 // 因為這版編譯器型別推倒有問題，所以改成這樣
+  @State var bottomState: CGSize = .zero
+  private var defaultBackCardWidth: CGFloat =  300 // 因為這版編譯器型別推倒有問題，所以改成這樣
+  private var defaultCardViewWidth: CGFloat = 340
 
   var body: some View {
     ZStack {
@@ -26,7 +28,7 @@ struct ContentView: View {
         )
 
       BackCardView()
-        .frame(width: showCard ? firstBackCardWidth : 340, height: 220)
+        .frame(width: showCard ? defaultBackCardWidth : 340, height: 220)
         .background(show ? Color("card3") : Color("card4"))
         .cornerRadius(20)
         .shadow(radius: 20)
@@ -56,8 +58,7 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 0.3)) // 設置動畫
 
       CardView()
-//        .frame(width: showCard ? 375 : 340, height: 220)
-        .frame(width: 375, height: 220) // 需要修改高度，但是這邊編譯器會壞掉
+        .frame(width: showCard ? 375 : defaultCardViewWidth, height: 220) // 需要修改高度，但是這邊編譯器會壞掉
         .background(Color.black)
 //        .cornerRadius(20)
         .clipShape(RoundedRectangle(cornerRadius: showCard ? 30 : 20, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/))
@@ -82,8 +83,17 @@ struct ContentView: View {
 
       BottomCardView()
         .offset(x: 0, y: showCard ? 400 : 1000)
+        .offset(y: bottomState.height)
         .blur(radius: show ? 20 : 0)
         .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8)) // bottom card view 推出來的速度
+        .gesture(
+          DragGesture().onChanged { value in
+            bottomState = value.translation
+          }
+          .onEnded { value in
+            bottomState = .zero
+          }
+        )
     }
   }
 }

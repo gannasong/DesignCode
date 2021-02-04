@@ -14,6 +14,7 @@
 		495ECFFA25C9365A00819050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495ECFF925C9365A00819050 /* Assets.xcassets */; };
 		495ECFFD25C9365A00819050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495ECFFC25C9365A00819050 /* Preview Assets.xcassets */; };
 		495ED00025C9365A00819050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495ECFFE25C9365A00819050 /* LaunchScreen.storyboard */; };
+		49DC8BA825CBEE1500820A6C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC8BA725CBEE1500820A6C /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		495ECFFC25C9365A00819050 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		495ECFFF25C9365A00819050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495ED00125C9365A00819050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49DC8BA725CBEE1500820A6C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				495ECFF525C9365900819050 /* SceneDelegate.swift */,
 				495ECFF725C9365900819050 /* ContentView.swift */,
 				492315D025CBCA480009B5C1 /* MenuView.swift */,
+				49DC8BA725CBEE1500820A6C /* Home.swift */,
 				495ECFF925C9365A00819050 /* Assets.xcassets */,
 				495ECFFE25C9365A00819050 /* LaunchScreen.storyboard */,
 				495ED00125C9365A00819050 /* Info.plist */,
@@ -150,6 +153,7 @@
 			files = (
 				495ECFF425C9365900819050 /* AppDelegate.swift in Sources */,
 				492315D125CBCA480009B5C1 /* MenuView.swift in Sources */,
+				49DC8BA825CBEE1500820A6C /* Home.swift in Sources */,
 				495ECFF625C9365900819050 /* SceneDelegate.swift in Sources */,
 				495ECFF825C9365900819050 /* ContentView.swift in Sources */,
 			);

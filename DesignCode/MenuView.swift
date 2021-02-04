@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuView: View {
   var body: some View {
     VStack {
-      MenuRow()
+      MenuRow(title: "Account", icon: "gear")
     }
   }
 }
@@ -22,13 +22,16 @@ struct MenuView_Previews: PreviewProvider {
 }
 
 struct MenuRow: View {
+  var title: String // 不建議使用空字串當 default value
+  var icon: String
+
   var body: some View {
     HStack(spacing: 16) { // 設定 spacing 讓 Image 跟 Text 間距加大
-      Image(systemName: "gear")
+      Image(systemName: icon)
         .font(.system(size: 20, weight: .light))
         .imageScale(.large) // 圖案變大
 
-      Text("Account")
+      Text(title)
         .font(.system(size: 20, weight: .bold, design: .default)) // design 就是下載的字體
     }
   }

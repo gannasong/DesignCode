@@ -10,10 +10,21 @@ import SwiftUI
 struct MenuView: View {
   var body: some View {
     VStack {
-      MenuRow(title: "Account", icon: "gear")
-      MenuRow(title: "Billing", icon: "creditcard")
-      MenuRow(title: "Sign out", icon: "person.crop.circle")
+      Spacer()
+
+      VStack(spacing: 16) {
+        MenuRow(title: "Account", icon: "gear")
+        MenuRow(title: "Billing", icon: "creditcard")
+        MenuRow(title: "Sign out", icon: "person.crop.circle")
+      }
+      .frame(maxWidth: .infinity) // 這不是寬度，是把最大寬度設為無窮大，這樣就會延伸到左右兩邊
+      .frame(height: 300) // 常規寬高設定不能與 maxWidth 一起
+      .background(Color.white)
+      .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+      .shadow(radius: 30) // 增加隱影，必須在切圓角後再添加，否則隱影會被切掉
+      .padding(.horizontal, 30) // 橫向加入 padding
     }
+    .padding(.bottom, 30) // 在外層 vstack 底部添加 padding
   }
 }
 

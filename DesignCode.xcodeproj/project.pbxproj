@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492315D125CBCA480009B5C1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492315D025CBCA480009B5C1 /* MenuView.swift */; };
 		495ECFF425C9365900819050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495ECFF325C9365900819050 /* AppDelegate.swift */; };
 		495ECFF625C9365900819050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495ECFF525C9365900819050 /* SceneDelegate.swift */; };
 		495ECFF825C9365900819050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495ECFF725C9365900819050 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492315D025CBCA480009B5C1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		495ECFF025C9365900819050 /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495ECFF325C9365900819050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495ECFF525C9365900819050 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				495ECFF325C9365900819050 /* AppDelegate.swift */,
 				495ECFF525C9365900819050 /* SceneDelegate.swift */,
 				495ECFF725C9365900819050 /* ContentView.swift */,
+				492315D025CBCA480009B5C1 /* MenuView.swift */,
 				495ECFF925C9365A00819050 /* Assets.xcassets */,
 				495ECFFE25C9365A00819050 /* LaunchScreen.storyboard */,
 				495ED00125C9365A00819050 /* Info.plist */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495ECFF425C9365900819050 /* AppDelegate.swift in Sources */,
+				492315D125CBCA480009B5C1 /* MenuView.swift in Sources */,
 				495ECFF625C9365900819050 /* SceneDelegate.swift in Sources */,
 				495ECFF825C9365900819050 /* ContentView.swift in Sources */,
 			);

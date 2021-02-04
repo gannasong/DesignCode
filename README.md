@@ -10,7 +10,7 @@
 | 05 | Gestures and Events | [05.md](Chapters/05.md) | Done |
 | 06 | Timing Curve and Delay Animation | [06.md](Chapters/06.md) | Done |
 | 07 | Dismiss and Drag Anchors | [07.md](Chapters/07.md) | Done |
-| 08 | SF Symbols and Props | [08.md](Chapters/08.md) |  |
+| 08 | SF Symbols and Props | [08.md](Chapters/08.md) | Done |
 | 09 | Color Literal, Gradient and Overlay | [09.md](Chapters/09.md) |  |
 | 10 | Animation Between Screens | [10.md](Chapters/10.md) |  |
 | 11 | Drag Progress and Tap Background | [11.md](Chapters/11.md) |  |

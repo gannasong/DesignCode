@@ -12,6 +12,7 @@ struct ContentView: View {
   @State var viewState: CGSize = .zero
   @State var showCard = false
   @State var bottomState: CGSize = .zero
+  @State var showFull: Bool = false
   private var defaultBackCardWidth: CGFloat =  300 // 因為這版編譯器型別推倒有問題，所以改成這樣
   private var defaultCardViewWidth: CGFloat = 340
 
@@ -81,8 +82,8 @@ struct ContentView: View {
           }
         )
 
-      Text("\(bottomState.height)")
-        .offset(y: -340)
+//      Text("\(bottomState.height)")
+//        .offset(y: -340) // debug 使用，方便查看位置
 
       BottomCardView()
         .offset(x: 0, y: showCard ? 400 : 1000)
@@ -92,12 +93,24 @@ struct ContentView: View {
         .gesture(
           DragGesture().onChanged { value in
             bottomState = value.translation
+            if showFull {
+              bottomState.height += -300
+            }
+            if bottomState.height < -300 { // 避免 bottomState 拖拉露出底部
+              bottomState.height = -300
+            }
           }
           .onEnded { value in
             if bottomState.height > 80 {
               showCard = false
             }
-            bottomState = .zero
+            if (bottomState.height < -100 && !showFull) || (bottomState.height < -280 && showFull) {
+              bottomState.height = -300
+              showFull = true
+            } else {
+              bottomState = .zero
+              showFull = false
+            }
           }
         )
     }

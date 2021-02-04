@@ -13,6 +13,20 @@ struct MenuView: View {
       Spacer()
 
       VStack(spacing: 16) {
+        Text("Miguel - 28% complete")
+          .font(.caption)
+
+        Color.white // 單純使用 Color.white 就可以完成狀態條
+          .frame(width: 38, height: 6)
+          .cornerRadius(3)
+          .frame(width: 130, height: 6, alignment: .leading)
+          .background(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)).opacity(0.08))
+          .cornerRadius(3)
+          .padding()
+          .frame(width: 150, height: 24)
+          .background(Color.black.opacity(0.1))
+          .cornerRadius(12)
+
         MenuRow(title: "Account", icon: "gear")
         MenuRow(title: "Billing", icon: "creditcard")
         MenuRow(title: "Sign out", icon: "person.crop.circle")
@@ -21,7 +35,7 @@ struct MenuView: View {
       .frame(height: 300) // 常規寬高設定不能與 maxWidth 一起
       .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)), Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]), startPoint: .top, endPoint: .bottom))
       .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-      .shadow(radius: 30) // 增加隱影，必須在切圓角後再添加，否則隱影會被切掉
+      .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20) // 增加自訂義隱影，必須在切圓角後再添加，否則隱影會被切掉
       .padding(.horizontal, 30) // 橫向加入 padding
       .overlay(
         Image("Avatar")
@@ -53,6 +67,7 @@ struct MenuRow: View {
         .font(.system(size: 20, weight: .light))
         .imageScale(.large) // 圖案變大
         .frame(width: 32, height: 32)
+        .foregroundColor(Color(#colorLiteral(red: 0.662745098, green: 0.7333333333, blue: 0.831372549, alpha: 1)))
 
       Text(title)
         .font(.system(size: 20, weight: .bold, design: .default)) // design 就是下載的字體

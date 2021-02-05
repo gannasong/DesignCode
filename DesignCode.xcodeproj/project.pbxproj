@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		491E3E4225CC466800876AFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E3E4125CC466800876AFC /* HomeView.swift */; };
+		491E3E4425CD22C100876AFC /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E3E4325CD22C100876AFC /* UpdateList.swift */; };
 		492315D125CBCA480009B5C1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492315D025CBCA480009B5C1 /* MenuView.swift */; };
 		495ECFF425C9365900819050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495ECFF325C9365900819050 /* AppDelegate.swift */; };
 		495ECFF625C9365900819050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495ECFF525C9365900819050 /* SceneDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		491E3E4125CC466800876AFC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		491E3E4325CD22C100876AFC /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
 		492315D025CBCA480009B5C1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		495ECFF025C9365900819050 /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495ECFF325C9365900819050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				492315D025CBCA480009B5C1 /* MenuView.swift */,
 				49DC8BA725CBEE1500820A6C /* Home.swift */,
 				491E3E4125CC466800876AFC /* HomeView.swift */,
+				491E3E4325CD22C100876AFC /* UpdateList.swift */,
 				495ECFF925C9365A00819050 /* Assets.xcassets */,
 				495ECFFE25C9365A00819050 /* LaunchScreen.storyboard */,
 				495ED00125C9365A00819050 /* Info.plist */,
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495ECFF425C9365900819050 /* AppDelegate.swift in Sources */,
+				491E3E4425CD22C100876AFC /* UpdateList.swift in Sources */,
 				492315D125CBCA480009B5C1 /* MenuView.swift in Sources */,
 				49DC8BA825CBEE1500820A6C /* Home.swift in Sources */,
 				491E3E4225CC466800876AFC /* HomeView.swift in Sources */,

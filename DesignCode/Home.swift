@@ -65,7 +65,7 @@ struct AvatarView: View {
         .resizable()
         .frame(width: 36, height: 36)
         .clipShape(Circle())
-        .shadow(color: Color.black.opacity(0.2), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: -5)
+        .shadow(color: Color.black.opacity(0.2), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 0, y: 10)
     }
   }
 }

@@ -25,9 +25,14 @@ struct HomeView: View {
       .padding(.top, 30)
 
       ScrollView(.horizontal, showsIndicators: false) {
-        HStack(spacing: 30) { // item 之間間隔
+        HStack(spacing: 20) { // item 之間間隔
           ForEach(sectionData) { item in
-            SectionView(section: item)
+            GeometryReader { geometry in // 卡片疊加效果
+              SectionView(section: item)
+                .rotation3DEffect(.degrees(Double(geometry.frame(in: .global).minX - 30) / -20),
+                                  axis: (x: 0, y: 10, z: 0)) // 酷炫選轉效果，神奇角度
+            }
+            .frame(width: 275, height: 275)
           }
         }
         .padding(30)

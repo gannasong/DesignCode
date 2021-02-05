@@ -16,10 +16,10 @@
 | 11 | Drag Progress and Tap Background | [11.md](Chapters/11.md) | Done |
 | 12 | Binding and Screen Size | [12.md](Chapters/12.md) | Done |
 | 13 | ScrollView and Repeat | [13.md](Chapters/13.md) | Done |
-| 14 | Data and Image Literal| [14.md](Chapters/14.md) |  |
-| 15 | 3D Scroll Animation | [15.md](Chapters/15.md) |  |
-| 16 | Modal Presentation | [16.md](Chapters/16.md) |  |
-| 17 | Navigation View and List | [17.md](Chapters/17.md) |  |
+| 14 | Data and Image Literal| [14.md](Chapters/14.md) | Done |
+| 15 | 3D Scroll Animation | [15.md](Chapters/15.md) | Done |
+| 16 | Modal Presentation | [16.md](Chapters/16.md) | Done |
+| 17 | Navigation View and List | [17.md](Chapters/17.md) | Done |
 | 18 | Navigation Style and Passing Data | [18.md](Chapters/18.md) |  |
 | 19 | Combine and Edit Data | [19.md](Chapters/19.md) |  |
 | 20 | Tab Bar and Test on Device | [20.md](Chapters/20.md) |  |

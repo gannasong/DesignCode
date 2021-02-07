@@ -19,6 +19,7 @@
 		495ECFFD25C9365A00819050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495ECFFC25C9365A00819050 /* Preview Assets.xcassets */; };
 		495ED00025C9365A00819050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495ECFFE25C9365A00819050 /* LaunchScreen.storyboard */; };
 		49795D8D25CE39DF006A5FC2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49795D8C25CE39DF006A5FC2 /* TabBar.swift */; };
+		49795D8F25CFBA2F006A5FC2 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49795D8E25CFBA2F006A5FC2 /* RingView.swift */; };
 		49DC8BA825CBEE1500820A6C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC8BA725CBEE1500820A6C /* Home.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		495ECFFF25C9365A00819050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495ED00125C9365A00819050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49795D8C25CE39DF006A5FC2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		49795D8E25CFBA2F006A5FC2 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		49DC8BA725CBEE1500820A6C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				491EA90C25CDA019008FF315 /* UpdateDetail.swift */,
 				491EA90E25CE2E0C008FF315 /* UpdateStore.swift */,
 				49795D8C25CE39DF006A5FC2 /* TabBar.swift */,
+				49795D8E25CFBA2F006A5FC2 /* RingView.swift */,
 				495ECFF925C9365A00819050 /* Assets.xcassets */,
 				495ECFFE25C9365A00819050 /* LaunchScreen.storyboard */,
 				495ED00125C9365A00819050 /* Info.plist */,
@@ -171,6 +174,7 @@
 				491E3E4425CD22C100876AFC /* UpdateList.swift in Sources */,
 				492315D125CBCA480009B5C1 /* MenuView.swift in Sources */,
 				491EA90D25CDA019008FF315 /* UpdateDetail.swift in Sources */,
+				49795D8F25CFBA2F006A5FC2 /* RingView.swift in Sources */,
 				49DC8BA825CBEE1500820A6C /* Home.swift in Sources */,
 				491E3E4225CC466800876AFC /* HomeView.swift in Sources */,
 				495ECFF625C9365900819050 /* SceneDelegate.swift in Sources */,

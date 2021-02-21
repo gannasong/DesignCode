@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct CourseList: View {
+  @State var courses = courseData
+
   var body: some View {
-    VStack {
-      CourseView()
+    ScrollView {
+      VStack(spacing: 30.0) {
+        Text("Courses")
+          .font(.largeTitle)
+          .bold().frame(maxWidth: .infinity, alignment: .leading)
+          .padding(.leading, 30)
+          .padding(.top, 30)
+
+        ForEach(courses.indices, id: \.self) { index in
+          GeometryReader { geometry in
+            CourseView(show: $courses[index].show, course: courses[index])
+              .offset(y: courses[index].show ? -geometry.frame(in: .global).minY : 0)
+          }
+          .frame(height: 280)
+          .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
+        }
+      }
+      .frame(width: screen.width)
+      .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
     }
   }
 }
@@ -22,7 +41,8 @@ struct CourseList_Previews: PreviewProvider {
 }
 
 struct CourseView: View {
-  @State var show = false
+  @Binding var show: Bool
+  var course: Course
 
   var body: some View {
     ZStack(alignment: .top) {
@@ -38,7 +58,7 @@ struct CourseView: View {
         Text("Minimal coding experience required, such as in HTML and CSS. Please note that Xcode 11 and Catalina are essential. Once you get everything installed, it'll get a lot friendlier! I added a bunch of troubleshoots at the end of this page to help you navigate the issues you might encounter.")
       }
       .padding(30)
-      .frame(maxWidth: show ? .infinity : CGFloat(screen.width - 60), maxHeight: show ? .infinity : CGFloat(200), alignment: .top)
+      .frame(maxWidth: show ? .infinity : CGFloat(screen.width - 60), maxHeight: show ? .infinity : CGFloat(280), alignment: .top)
       .offset(y: show ? 460 : 0)
       .background(Color.white)
       .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -48,15 +68,15 @@ struct CourseView: View {
       VStack {
         HStack(alignment: .top) {
           VStack(alignment: .leading, spacing: 8.0) {
-            Text("SwiftUI Advanced")
-              .font(.system(size: 20, weight: .bold))
+            Text(course.title)
+              .font(.system(size: 24, weight: .bold))
               .foregroundColor(.white)
-            Text("20 Sections")
+            Text(course.subtitle)
               .foregroundColor(Color.white.opacity(0.7))
           }
           Spacer()
           ZStack {
-            Image("Logo1")
+            Image(uiImage: course.logo)
               .opacity(show ? 0 : 1)
 
             VStack {
@@ -71,7 +91,7 @@ struct CourseView: View {
           }
         }
         Spacer()
-        Image("Card4")
+        Image(uiImage: course.image)
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(maxWidth: .infinity)
@@ -81,14 +101,31 @@ struct CourseView: View {
       .padding(.top, show ? 30 : CGFloat(0))
       //    .frame(width: show ? screen.width : screen.width - 60, height: show ? screen.height : 280)
       .frame(maxWidth: show ? .infinity : CGFloat(screen.width - 60), maxHeight: show ? 460 : CGFloat(280))
-      .background(Color(#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)))
+      .background(Color(course.color))
       .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-      .shadow(color: Color(#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
       .onTapGesture {
         show.toggle()
       }
     }
+    .frame(height: show ? screen.height : 280)
     .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
     .edgesIgnoringSafeArea(.all)
   }
 }
+
+struct Course: Identifiable {
+  var id = UUID()
+  var title: String
+  var subtitle: String
+  var image: UIImage
+  var logo: UIImage
+  var color: UIColor
+  var show: Bool
+}
+
+var courseData = [
+  Course(title: "Prototype Designs in SwiftUI", subtitle: "18 Sections", image: UIImage(named: "Card2")!, logo: UIImage(named: "Logo1")!, color: .blue, show: false),
+  Course(title: "Prototype Advanced", subtitle: "20 Sections", image: UIImage(named: "Card3")!, logo: UIImage(named: "Logo1")!, color: .purple, show: false),
+  Course(title: "UI Design for Developers", subtitle: "20 Sections", image: UIImage(named: "Card4")!, logo: UIImage(named: "Logo3")!, color: .systemPink, show: false)
+]

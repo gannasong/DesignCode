@@ -11,10 +11,11 @@ struct CourseList: View {
   @State var courses = courseData
   @State var active = false
   @State var activeIndex = -1
+  @State var activeView: CGSize = .zero
 
   var body: some View {
     ZStack {
-      Color.black.opacity(active ? 0.5 : 0)
+      Color.black.opacity(Double(activeView.height / 500))
         .animation(.linear)
         .edgesIgnoringSafeArea(.all)
 
@@ -33,7 +34,8 @@ struct CourseList: View {
                          course: courses[index],
                          active: $active,
                          index: index,
-                         activeIndex: $activeIndex)
+                         activeIndex: $activeIndex,
+                         activeView: $activeView)
                 .offset(y: courses[index].show ? -geometry.frame(in: .global).minY : 0)
                 .opacity(activeIndex != index && active ? 0 : 1)
                 .scaleEffect(activeIndex != index && active ? 0.5 : 1)
@@ -65,6 +67,7 @@ struct CourseView: View {
   @Binding var active: Bool
   var index: Int
   @Binding var activeIndex: Int
+  @Binding var activeView: CGSize
 
   var body: some View {
     ZStack(alignment: .top) {
@@ -126,6 +129,25 @@ struct CourseView: View {
       .background(Color(course.color))
       .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
       .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
+      .gesture(
+        show ?
+        DragGesture().onChanged { value in
+          guard value.translation.height < 300 else { return }
+          guard value.translation.height > 0 else { return }
+
+          activeView = value.translation
+
+        }
+        .onEnded { value in
+          if activeView.height > 50 {
+            show = false
+            active = false
+            activeIndex = -1
+          }
+          activeView = .zero
+        }
+        : nil
+      )
       .onTapGesture {
         show.toggle()
         active.toggle()
@@ -137,7 +159,29 @@ struct CourseView: View {
       }
     }
     .frame(height: show ? screen.height : 280)
+    .scaleEffect(1 - activeView.height / 1000)
+    .rotation3DEffect(Angle(degrees: Double(activeView.height / 10)), axis: (x: 0, y: 10, z: 0))
+    .hueRotation(Angle(degrees: Double(activeView.height / 10)))
     .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+    .gesture(
+      show ?
+      DragGesture().onChanged { value in
+        guard value.translation.height < 300 else { return }
+        guard value.translation.height > 0 else { return }
+
+        activeView = value.translation
+
+      }
+      .onEnded { value in
+        if activeView.height > 50 {
+          show = false
+          active = false
+          activeIndex = -1
+        }
+        activeView = .zero
+      }
+      : nil
+    )
     .edgesIgnoringSafeArea(.all)
   }
 }
